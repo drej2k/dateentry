@@ -238,11 +238,11 @@
 		/** Initialise the current date for a date entry input field.
 			@param elem {Element} The input field to update.
 			@param date {Date|number|string} The new date or offset or <code>null</code> to clear.
-					An actual date or offset in days from today or units and periods of offsets from today.
+			An actual date or offset in days from today or units and periods of offsets from today.
 			@example $(selector).dateEntry('setDate', new Date(2013, 12-1, 25))
- $(selector).dateEntry('setDate', +10)
- $(selector).dateEntry('setDate', '+1M +7D')
- $(selector).dateEntry('setDate', null) */
+      $(selector).dateEntry('setDate', +10)
+      $(selector).dateEntry('setDate', '+1M +7D')
+      $(selector).dateEntry('setDate', null) */
 		setDate: function(elem, date) {
 			var inst = this._getInst(elem);
 			if (inst) {
