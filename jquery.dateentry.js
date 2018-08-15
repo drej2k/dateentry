@@ -172,14 +172,11 @@
     },
 
 		_optionsChanged: function(elem, inst, options) {
-			var currentDate = this._extractDate(elem.val(), inst);
 			$.extend(inst.options, options);
 			inst._field = 0;
-			inst._lastField = (inst.options.dateFormat[2] === ' ' ? 1 : 2);
-			if (currentDate) {
-				this._setDate(inst, currentDate);
-			}
-			// Remove stuff dependent on old settings
+			inst._lastField = (inst.options.dateFormat[2] === ' ' ? 1 : 2);      
+
+			var currentDate = this._extractDate(elem.val(), inst);
 			elem.next('span.' + this._appendClass).remove();
 			elem.parent().find('span.' + this._controlClass).remove();
 			if ($.fn.mousewheel) {
