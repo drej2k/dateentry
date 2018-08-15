@@ -151,6 +151,26 @@
 				});
 		},
 
+    /** Return true or false depending on whether a user has passed
+    a valid date for setDate variable.
+    @private
+    @example $(selector).dateEntry({setDate: '23/5/2018'}) */
+    _dateToBeSet: function(inst) {
+			if (inst && inst.options && inst.options.setDate) {
+        var date = inst.options.setDate;
+      }
+
+			if (date === null || date === '') {
+        return false;
+			} else {
+				if (typeof date === 'object' || new Date(date)) {
+          return true;
+        } else {
+          return false;
+				}        
+			}
+    },
+
 		_optionsChanged: function(elem, inst, options) {
 			var currentDate = this._extractDate(elem.val(), inst);
 			$.extend(inst.options, options);
