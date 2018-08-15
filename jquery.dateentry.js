@@ -177,6 +177,16 @@
 			inst._lastField = (inst.options.dateFormat[2] === ' ' ? 1 : 2);      
 
 			var currentDate = this._extractDate(elem.val(), inst);
+      var dateToBeSet = this._dateToBeSet(inst);
+            
+			if (dateToBeSet) {
+        date = new Date(inst.options.setDate);
+        this._setDate(inst, date);
+			} else {
+      	this._setDate(inst, currentDate);
+      }
+			
+      // Remove stuff dependent on old settings
 			elem.next('span.' + this._appendClass).remove();
 			elem.parent().find('span.' + this._controlClass).remove();
 			if ($.fn.mousewheel) {
